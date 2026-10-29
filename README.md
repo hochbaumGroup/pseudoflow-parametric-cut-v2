@@ -58,18 +58,6 @@ The `l` line appears once for each breakpoint, in increasing order of `lambda`, 
 
 See `src/pseudoflow/c/example` for a small example. To get progress and tracing output, build with `make CFLAGS='-c -fpic -Wall -std=gnu99 -O4 -DVERBOSE'` in `src/pseudoflow/c`.
 
-## Samples
-The `samples` directory contains four densest-subgraph instances with their output. In each instance, every vertex `v` of the input graph has a source arc of capacity `max(0, lambda - deg(v))` and a sink arc of capacity `max(0, deg(v) - lambda)`, every edge has unit-capacity arcs, and `lambda` ranges over `[0, 1000]`.
-
-| Instance | Wall time | Peak memory |
-|---|---|---|
-| `close-cliques` | 0.13 s | 23 MB |
-| `ego-facebook` | 0.14 s | 26 MB |
-| `email-Enron` | 0.55 s | 71 MB |
-| `soc-Slashdot0811` | 1.38 s | 175 MB |
-
-Times are for one core of an Intel Xeon Gold 6330 (Savio cluster, UC Berkeley), with gcc 8.5.
-
 ## Benchmarks
 Solve time (third field of the `t` line) of v2 and v3 on densest-subgraph instances built from SNAP graphs. The full table is in `benchmarks/v2_vs_v3.tsv`, and `benchmarks/v3_all_runs.tsv` has v3 results on 36 graphs, up to `wikidata` (2113 s, 6231 breakpoints).
 
