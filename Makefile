@@ -1,7 +1,15 @@
-.PHONY: all clean
+all: test
 
-all:
-	$(MAKE) -C src/pseudoflow/c
+lint: pylint pydoc pycode
 
-clean:
-	$(MAKE) -C src/pseudoflow/c clean
+pylint:
+	pylint --rcfile=.pylintrc src/
+
+pydoc:
+	pydocstyle src/
+
+pycode:
+	pycodestyle src/ tests/
+
+test:
+	pytest
